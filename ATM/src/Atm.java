@@ -28,7 +28,7 @@ public class Atm extends JFrame {
 	private JButton enter;
 	private JPasswordField password;
 	private String inputkey = "";
-
+    private static int count =0;
 Atm(){
 
 password = new JPasswordField();
@@ -53,7 +53,7 @@ enter.addActionListener(new ActionListener(){
 	public void actionPerformed(ActionEvent e){
 		
 		String input = password.getText();
-		int count = 0;
+		
 		
 		if(Authentication.authenticatekey(inputkey)){
 			JOptionPane.showMessageDialog(null, "you got it man","success!",1);
@@ -61,7 +61,7 @@ enter.addActionListener(new ActionListener(){
 		inputkey = "";
 		password.setText("");
 		}
-		else if(count<3){
+		else if(count<2){
 			JOptionPane.showMessageDialog(null,"well...that's strike" + (count + 1) +", 3 and you're done","ouch...",1);
 		System.out.println("no");
 		inputkey = "";
